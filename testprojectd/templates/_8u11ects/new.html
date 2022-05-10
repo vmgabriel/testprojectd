@@ -1,0 +1,31 @@
+{% extends "content.html" %}
+{% load static %}
+
+
+{% block container %}
+  <div class="title">
+    <h3>{% if is_update %}<i class="bi bi-pencil-square"></i> Update _8u11ects {{ object.pk }}{% else %}<i class="bi bi-clipboard-plus"></i> Create New _8u11ects{% endif %}</h3>
+  </div>
+
+  <div class="block">
+    <form method="POST" enctype="multipart/form-data">
+{% csrf_token %}      <div class="input-field col s12">
+        <label for="_63t8">{{ form._63t8.label }}</label>
+{{ form._63t8 }}      </div>
+      <div class="input-field col s12">
+        <label for="s5bm6m1d5tv">{{ form.s5bm6m1d5tv.label }}</label>
+{{ form.s5bm6m1d5tv }}      </div>
+      <div class="input-field col s12">
+        <label for="wt">{{ form.wt.label }}</label>
+{{ form.wt }}      </div>
+      <div class="input-field col s12">
+        <label for="students_sc">{{ form.students_sc.label }}</label>
+{{ form.students_sc }}      </div>
+      <div class="buttons">
+        <a class="btn btn-secondary" href="{% if is_update %}{% url 'testprojectds:_8u11ects-edit' pk=object.pk %}{% else %}{% url 'testprojectds:_8u11ects-new' %}{% endif %}">Cancel</a>
+        <input class="btn btn-primary" type="submit" value="{% if is_update %}Update{% else %}Save{% endif %}">
+      </div>
+    </form>
+  </div>
+
+{% endblock container %}

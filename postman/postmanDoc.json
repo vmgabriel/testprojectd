@@ -1,0 +1,621 @@
+{
+    "info": {
+        "_postman_id": "1e087157-37a5-4928-85e8-a475c82a3fba",
+        "name": "testprojectd",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+			      "item": [
+				        {
+					          "name": "Auth",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"email_here\",\n    \"password\": \"password_here\"\n}",
+							              "options": {
+								                "raw": {
+									                  "language": "json"
+                                }
+						                }
+						            },
+						            "url": {
+							              "raw": "{{urlServer}}:{{portServer}}/api/auth/jwt/",
+							              "protocol": "http",
+							              "host": [
+								                "{{urlServer}}"
+                            ],
+							              "port": "{{portServer}}",
+							              "path": [
+								                "api",
+								                "auth",
+								                "jwt",
+								                ""
+							              ]
+                        }
+                    },
+					          "response": []
+				        },
+				        {
+                    "name": "Refresh Auth",
+					          "request": {
+						            "auth": {
+							              "type": "noauth"
+						            },
+						            "method": "POST",
+						            "header": [],
+						            "body": {
+							              "mode": "raw",
+							              "raw": "{\n    \"token\": \"the_token\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+						            "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/auth/jwt/refresh/",
+                            "protocol": "http",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{urlServer}}",
+                            "path": [
+                                "api",
+                                "auth",
+								                "jwt",
+								                "refresh",
+								                ""
+							              ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout Auth",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "the_token",
+                                    "value": "",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+						            "method": "POST",
+						            "header": [],
+						            "body": {
+                            "mode": "raw",
+                            "raw": "",
+							              "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/auth/jwt/logout/",
+							              "protocol": "http",
+							              "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{urlServer}}",
+                            "path": [
+                                "api",
+                                "auth",
+								                "jwt",
+								                "logout",
+								                ""
+							              ]
+                        }
+                    },
+					          "response": []
+                }
+            ]
+        },        {
+            "name": "Students",
+            "item": [
+                {
+                    "name": "Get All Studentss",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/studentss/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "studentss",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get One Students by Id",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/studentss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "students",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Students",
+                    "request": {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ldsyv\": \"test data\",\n    \"oam6sb4\": \"test data\",\n    \"_1mfmyy4hb\": \"test data\",\n    \"da13a8dmye8tlsey\": \"test data\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/studentss/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "studentss",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Students by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ldsyv\": \"test data\",\n    \"oam6sb4\": \"test data\",\n    \"_1mfmyy4hb\": \"test data\",\n    \"da13a8dmye8tlsey\": \"test data\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/studentss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "studentss",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Students by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/studentss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "students",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "_8u11ects",
+            "item": [
+                {
+                    "name": "Get All _8u11ectss",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/_8u11ectss/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "_8u11ectss",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get One _8u11ects by Id",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/_8u11ectss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "_8u11ects",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create _8u11ects",
+                    "request": {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"_63t8\": \"test data\",\n    \"s5bm6m1d5tv\": \"test data\",\n    \"wt\": \"test data\",\n    \"students_sc\": \"StUdeNtS\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/_8u11ectss/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "_8u11ectss",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update _8u11ects by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"_63t8\": \"test data\",\n    \"s5bm6m1d5tv\": \"test data\",\n    \"wt\": \"test data\",\n    \"students_sc\": \"StUdeNtS\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/_8u11ectss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "_8u11ectss",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete _8u11ects by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/_8u11ectss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "_8u11ects",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

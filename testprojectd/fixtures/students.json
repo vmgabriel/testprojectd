@@ -1,0 +1,32 @@
+[
+  {
+    "pk": 1,
+    "model": "testprojectd.students",
+    "fields": {
+      "ldsyv": "Update",
+      "oam6sb4": "Update",
+      "_1mfmyy4hb": "Update",
+      "da13a8dmye8tlsey": "Update"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "testprojectd.students",
+    "fields": {
+      "ldsyv": "Update",
+      "oam6sb4": "Update",
+      "_1mfmyy4hb": "Update",
+      "da13a8dmye8tlsey": "Update"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "testprojectd.students",
+    "fields": {
+      "ldsyv": "Update",
+      "oam6sb4": "Update",
+      "_1mfmyy4hb": "Update",
+      "da13a8dmye8tlsey": "Update"
+    }
+  }
+]

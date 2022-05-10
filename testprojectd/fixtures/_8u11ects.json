@@ -1,0 +1,32 @@
+[
+  {
+    "pk": 1,
+    "model": "testprojectd._8u11ects",
+    "fields": {
+      "_63t8": "Update",
+      "s5bm6m1d5tv": "Update",
+      "wt": "Update",
+      "students_sc": 1
+    }
+  },
+  {
+    "pk": 2,
+    "model": "testprojectd._8u11ects",
+    "fields": {
+      "_63t8": "Update",
+      "s5bm6m1d5tv": "Update",
+      "wt": "Update",
+      "students_sc": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "testprojectd._8u11ects",
+    "fields": {
+      "_63t8": "Update",
+      "s5bm6m1d5tv": "Update",
+      "wt": "Update",
+      "students_sc": 1
+    }
+  }
+]
